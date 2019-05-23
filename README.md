@@ -1,4 +1,4 @@
-# Automated conversion of Excel to PDF using LibreOffice & unoconv
+# Automated conversion of Excel to PDF using LibreOffice
 - Read existing excel file.
 - Modify cell values of existing excel file.
 - Convert output of worksheet to PDF
@@ -19,5 +19,6 @@
 - Run ``sudo apt-get install libreoffice``
 
 ## unoconv Installation
+[Universal Office Converter (unoconv)](https://github.com/unoconv/unoconv)
 - Run ``sudo apt-get install -y unoconv``
 - Run ``unoconv --version``
