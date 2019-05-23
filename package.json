@@ -1,0 +1,28 @@
+{
+  "name": "excel-to-pdf",
+  "version": "1.0.0",
+  "description": "Automated conversion of Excel to PDF using LibreOffice",
+  "main": "excel.js",
+  "scripts": {
+    "test": "node excel.js"
+  },
+  "keywords": [
+    "node",
+    "nodejs",
+    "excel",
+    "exceljs",
+    "xlsx-populate",
+    "libreoffice",
+    "libreoffice"
+  ],
+  "author": "Nishant Vaity",
+  "license": "MIT",
+  "dependencies": {
+    "exceljs": "^1.11.0",
+    "express": "^4.17.0",
+    "fs": "0.0.1-security",
+    "office-converter": "^1.0.2",
+    "socket.io": "^2.2.0",
+    "xlsx-populate": "^1.19.1"
+  }
+}
