@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Automated conversion of Excel to PDF using LibreOffice</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.7/css/mdb.min.css" rel="stylesheet">
+    </head>
+<body>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm mt-2">
+      <h1>Automated conversion of Excel to PDF using LibreOffice</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm mt-2">
+      <input type="text" id="file_id" placeholder="File ID" class="p-1 rounded border border-success">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm mt-2">
+      <input type="text" id="s1" placeholder="String 1" class="p-1 rounded border border-success">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm mt-2">
+      <input type="text" id="s2" placeholder="String 2" class="p-1 rounded border border-success">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm mt-2">
+      <input type="text" id="n1" placeholder="Number 1" class="p-1 rounded border border-success">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm mt-2">
+      <input type="text" id="n2" placeholder="Number 2" class="p-1 rounded border border-success">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm mt-2">
+      <input type="button" class="btn btn-success" id="submit_request" value="Submit">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm mt-2" id="result"></div>
+  </div>
+</div>  
+
+</body>
+
+<!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.7/js/mdb.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  var socket = io();
+  socket.on('messageDefault',function(data) {
+    // Default message
+    console.log(data);
+    if(data.status == 'success') {
+      $('#result').fadeIn();
+      $('#result').html('<a href="/pdf/' + data.file + '">' + data.file + '.xlsx</a> | <a href="/excel/' + data.file + '">' + data.file + '.pdf</a>');
+    }
+  });
+  
+  $('#submit_request').click(function(){
+    if(
+        $('#file_id').val() != undefined && $('#file_id').val() != '' && 
+        $('#s1').val() != undefined && $('#s1').val() != '' && 
+        $('#s2').val() != undefined && $('#s2').val() != '' && 
+        $('#n1').val() != undefined && $('#n1').val() != '' && 
+        $('#n2').val() != undefined && $('#n2').val() != ''
+    ) {
+      var data = {
+        file_id: $('#file_id').val(),
+        s1: $('#s1').val(),
+        s2: $('#s2').val(),
+        n1: $('#n1').val(),
+        n2: $('#n2').val(),
+      }
+      socket.emit('createReport',data);
+    } else {
+      $('#result').html('<div class="alert alert-danger">Please enter all values</div>');
+    }
+  });
+</script>
+</html>
