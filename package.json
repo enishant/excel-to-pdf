@@ -22,7 +22,7 @@
     "express": "^4.17.0",
     "fs": "0.0.1-security",
     "office-converter": "^1.0.2",
-    "socket.io": "^2.2.0",
+    "socket.io": "^2.4.0",
     "xlsx-populate": "^1.19.1"
   }
 }
