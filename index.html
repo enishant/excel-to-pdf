@@ -79,7 +79,7 @@
     console.log(data);
     if(data.status == 'success') {
       $('#result').fadeIn();
-      $('#result').html('<a href="/pdf/' + data.file + '">' + data.file + '.xlsx</a> | <a href="/excel/' + data.file + '">' + data.file + '.pdf</a>');
+      $('#result').html('<a href="/excel/' + data.file + '">' + data.file + '.xlsx</a> | <a href="/pdf/' + data.file + '">' + data.file + '.pdf</a>');
     }
   });
   

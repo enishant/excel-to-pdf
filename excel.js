@@ -16,7 +16,7 @@ app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
 });
 
-app.get('/pdf/:file_id', function (req, res, next) {
+app.get('/excel/:file_id', function (req, res, next) {
   if(req != undefined && req.params != undefined && req.params.file_id != undefined) {
     res.set({
       'Content-Disposition': 'attachment; filename=' + req.params.file_id + '.xlsx',
@@ -25,7 +25,7 @@ app.get('/pdf/:file_id', function (req, res, next) {
   }
 });
 
-app.get('/excel/:file_id', function (req, res, next) {
+app.get('/pdf/:file_id', function (req, res, next) {
   if(req != undefined && req.params != undefined && req.params.file_id != undefined) {
     res.set({
       'Content-Disposition': 'attachment; filename=' + req.params.file_id + '.pdf',
