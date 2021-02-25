@@ -4,7 +4,7 @@
 - Convert output of worksheet to PDF
 
 ## Install Node.js
-- Run ``curl -sL https://deb.nodesource.com/setup_10.x | sudo bash -``
+- Run ``curl -sL https://deb.nodesource.com/setup_14.x | sudo bash -``
 - Run ``sudo apt-get install gcc g++ make``
 - Run ``sudo apt-get install -y nodejs``
 - Run ``node --version``
