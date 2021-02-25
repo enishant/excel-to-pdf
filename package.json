@@ -18,7 +18,7 @@
   "author": "Nishant Vaity",
   "license": "MIT",
   "dependencies": {
-    "exceljs": "^1.11.0",
+    "exceljs": "^4.2.0",
     "express": "^4.17.0",
     "fs": "0.0.1-security",
     "office-converter": "^1.0.2",
